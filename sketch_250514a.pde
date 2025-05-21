@@ -3,39 +3,44 @@ final int intro = 1;
 final int game = 2;
 final int pause = 3;
 final int gameover = 4;
+int gamemode;
+final int square = 1;
+final int circle = 2;
 float player1y;
 float player2y;
 float ballx;
 float bally;
-float ishowspeed1, ishowspeed2;
-float ushowspeed1, ushowspeed2;
+float vx;
+float vy;
+float ishowspeed1, ishowspeeddown;
+float ushowspeed1, ushowspeeddown;
 boolean wkey, skey, upkey, downkey;
 
 
 void setup() {
   size(1000, 800);
   mode = game;
-  ishowspeed1 = 4;
-  ishowspeed2 = -4;
-  ushowspeed2 = -4;
-  ushowspeed1 = 4;
-  
+  player1y = 400;
+  player2y = 400;
+  ballx = 500;
+  bally = 400;
+  vx = 4;
+  vy = 4;
 }
 
 void draw() {
-  
+
   background(0);
-  
-  if(mode == intro){
+
+  if (mode == intro) {
     intro();
-  } else if(mode == game){
+  } else if (mode == game) {
     game();
-  } else if(mode == pause){
+  } else if (mode == pause) {
     pause();
-  } else if (mode == gameover){
+  } else if (mode == gameover) {
     gameover();
   } else {
     println("Mode erro: " + mode);
   }
-  
 }
