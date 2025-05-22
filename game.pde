@@ -1,6 +1,7 @@
 void game() {
   fill(255);
   noStroke();
+  
 
 if(gamemode == square) {
 
@@ -23,17 +24,16 @@ if(gamemode == square) {
   if (bally <= 0) {
     vy = vy * -1;
   }
-  //ball mechanics
 
 
 
   if (wkey == true) {
-    player1y = player1y - 5;
+    player1y = player1y - playerspeed;
   }
-  if (skey == true) player1y = player1y + 5;
+  if (skey == true) player1y = player1y + playerspeed;
 
-  if (upkey == true) player2y = player2y - 5;
-  if (downkey == true) player2y = player2y + 5;
+  if (upkey == true) player2y = player2y - playerspeed;
+  if (downkey == true) player2y = player2y + playerspeed;
   
   
   //collsion
@@ -47,7 +47,56 @@ if(gamemode == square) {
   
 } //end of square
 
+//circle
 if(gamemode == circle){
+  
+  circle(0, player1y, player2d);
+  circle(1000, player2y, player2d);
+  circle(ballx, bally, balld);
+  
+   //ball mechanics
+  ballx = ballx + vx;
+  bally = bally + vy;
+  if (ballx >= 980) {
+    vx = vx * -1;
+  }
+  if (ballx <= 0) {
+    vx = vx * -1;
+  }
+  if (bally >= 780) {
+    vy = vy * -1;
+  }
+  if (bally <= 0) {
+    vy = vy * -1;
+  }
+  
+  distancex1 = ballx - 50;
+  distancey1 = bally - player1y;
+  distancex2 = 950 - ballx;
+  distancey2 = player2y - ballx;
+  distance1 = sqrt(sq(distancex1) + sq(distancey1));
+  distance2 = sqrt(sq(distancex2) + sq(distancey2));
+  
+  
+
+  if (wkey == true) {
+    player1y = player1y - playerspeed;
+  }
+  if (skey == true) player1y = player1y + playerspeed;
+
+  if (upkey == true) player2y = player2y - playerspeed;
+  if (downkey == true) player2y = player2y + playerspeed;
+  
+  //collision
+  if(distance1 <= 60) {
+    vx = vx * -1;
+  }
+  if(distance2 <= 60){
+    vx = vx * -1;
+  }
+  
+  
+  
   
 } //end of circle
   
