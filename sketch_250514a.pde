@@ -20,6 +20,8 @@ boolean wkey, skey, upkey, downkey;
 float playerspeed;
 float distance1, distance2;
 float distancex1, distancex2, distancey1, distancey2;
+float constant;
+float player1point, player2point;
 
 
 
@@ -37,6 +39,10 @@ void setup() {
   vx = 4;
   vy = 4;
   playerspeed = 12;
+  constant = 12;
+  player1point = 0;
+  player2point = 0;
+  
 }
 
 void draw() {

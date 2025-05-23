@@ -2,6 +2,9 @@ void game() {
   fill(255);
   noStroke();
   
+  fill(255, 255, 255, 100);
+  
+  
 
 if(gamemode == square) {
 
@@ -72,11 +75,21 @@ if(gamemode == circle){
   
   distancex1 = ballx - 50;
   distancey1 = bally - player1y;
-  distancex2 = 950 - ballx;
-  distancey2 = player2y - ballx;
+  distancex2 = ballx - 950;
+  distancey2 = bally - player2y;
   distance1 = sqrt(sq(distancex1) + sq(distancey1));
   distance2 = sqrt(sq(distancex2) + sq(distancey2));
   
+    //collision
+ if (distance1 <= (player1d / 2 + balld / 2)) {  
+    vx = (ballx - 0) / constant;
+    vy = (bally - player1y) / constant;
+  }
+  if (distance2 <= (player2d / 2 + balld / 2)) { 
+    vx = (ballx - 1000) / constant;
+    vy = (bally - player2y) / constant;
+    
+  }
   
 
   if (wkey == true) {
@@ -87,18 +100,19 @@ if(gamemode == circle){
   if (upkey == true) player2y = player2y - playerspeed;
   if (downkey == true) player2y = player2y + playerspeed;
   
-  //collision
-  if(distance1 <= 60) {
-    vx = vx * -1;
-  }
-  if(distance2 <= 60){
-    vx = vx * -1;
-  }
-  
+
   
   
   
 } //end of circle
+
+
+if(ballx <= 0){
+  player1point = player1point + 1;
+  
+  
+}
+
   
 }
 
