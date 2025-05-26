@@ -21,7 +21,7 @@ float playerspeed;
 float distance1, distance2;
 float distancex1, distancex2, distancey1, distancey2;
 float constant;
-float player1point, player2point;
+int player1point, player2point;
 
 
 

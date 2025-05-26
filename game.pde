@@ -2,7 +2,7 @@ void game() {
   fill(255);
   noStroke();
   
-  fill(255, 255, 255, 100);
+  fill(255, 255, 255);
   
   
 
@@ -73,6 +73,11 @@ if(gamemode == circle){
     vy = vy * -1;
   }
   
+  stroke(255);
+  line(50, 0, 50, 800);
+  line(950, 0, 950, 800);
+  noStroke();
+  
   distancex1 = ballx - 50;
   distancey1 = bally - player1y;
   distancex2 = ballx - 950;
@@ -81,11 +86,11 @@ if(gamemode == circle){
   distance2 = sqrt(sq(distancex2) + sq(distancey2));
   
     //collision
- if (distance1 <= (player1d / 2 + balld / 2)) {  
+ if (distance1 <= 50) {  
     vx = (ballx - 0) / constant;
     vy = (bally - player1y) / constant;
   }
-  if (distance2 <= (player2d / 2 + balld / 2)) { 
+  if (distance2 <= 50) { 
     vx = (ballx - 1000) / constant;
     vy = (bally - player2y) / constant;
     
@@ -106,10 +111,20 @@ if(gamemode == circle){
   
 } //end of circle
 
+//scoring
+textSize(50);
+fill(255, 255, 255, 100);
+text(player1point, width/4, 100);
+text(player2point, 3 * width/4, 100);
 
-if(ballx <= 0){
+
+if(ballx >= 1000){
   player1point = player1point + 1;
   
+}
+
+if(ballx <= 0) {
+  player2point = player2point + 1;
   
 }
 
