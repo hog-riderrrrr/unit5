@@ -73,10 +73,7 @@ if(gamemode == circle){
     vy = vy * -1;
   }
   
-  stroke(255);
-  line(50, 0, 50, 800);
-  line(950, 0, 950, 800);
-  noStroke();
+  
   
   distancex1 = ballx - 50;
   distancey1 = bally - player1y;
@@ -118,16 +115,23 @@ text(player1point, width/4, 100);
 text(player2point, 3 * width/4, 100);
 
 
-if(ballx >= 1000){
+if(ballx >= 980){
   player1point = player1point + 1;
   
 }
 
 if(ballx <= 0) {
   player2point = player2point + 1;
-  
 }
 
+if(player1point == maxpoint || player2point == maxpoint){
+  
+  
+  mode = gameover;
+  player1point = 0;
+  player2point = 0;
+  
+}
   
 }
 

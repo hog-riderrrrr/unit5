@@ -22,6 +22,8 @@ float distance1, distance2;
 float distancex1, distancex2, distancey1, distancey2;
 float constant;
 int player1point, player2point;
+int maxpoint;
+
 
 
 
@@ -42,6 +44,7 @@ void setup() {
   constant = 12;
   player1point = 0;
   player2point = 0;
+  maxpoint = 4;
   
 }
 
@@ -60,4 +63,10 @@ void draw() {
   } else {
     println("Mode erro: " + mode);
   }
+  
+  if(player1point == maxpoint || player2point == maxpoint){
+  
+  mode = gameover;
+  
+}
 }
