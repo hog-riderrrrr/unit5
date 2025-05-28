@@ -1,4 +1,5 @@
 void game() {
+  gamestart = true;
   fill(255);
   noStroke();
   
@@ -124,10 +125,25 @@ if(ballx <= 0) {
   player2point = player2point + 1;
 }
 
+//pause the game
+if(pkey == true){
+ dowepause = !dowepause; 
+}
+if(gamestart == true){
+if(dowepause == true){
+  mode = pause;
+}
+if(dowepause == false){
+  mode = game;
+}
+}
+
+//game over
 if(player1point == maxpoint || player2point == maxpoint){
   
   
   mode = gameover;
+  gamestart = false;
   player1point = 0;
   player2point = 0;
   

@@ -16,13 +16,15 @@ float vx;
 float vy;
 float ishowspeed1, ishowspeeddown;
 float ushowspeed1, ushowspeeddown;
-boolean wkey, skey, upkey, downkey;
+boolean wkey, skey, upkey, downkey, pkey;
 float playerspeed;
 float distance1, distance2;
 float distancex1, distancex2, distancey1, distancey2;
 float constant;
 int player1point, player2point;
 int maxpoint;
+boolean dowepause;
+boolean gamestart;
 
 
 
@@ -45,6 +47,7 @@ void setup() {
   player1point = 0;
   player2point = 0;
   maxpoint = 4;
+  dowepause = false;
   
 }
 
@@ -63,6 +66,8 @@ void draw() {
   } else {
     println("Mode erro: " + mode);
   }
+  
+  
   
   if(player1point == maxpoint || player2point == maxpoint){
   
