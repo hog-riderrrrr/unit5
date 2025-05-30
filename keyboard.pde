@@ -3,7 +3,6 @@ void keyPressed() {
   if (key == 's' || key =='S') skey = true;
   if (keyCode == UP) upkey = true;
   if (keyCode == DOWN) downkey = true;
-  if (mode == game && key == 'p') pkey = true;
 }
 
 void keyReleased() {
@@ -11,5 +10,7 @@ void keyReleased() {
   if (key == 's' || key =='S') skey = false;
   if (keyCode == UP) upkey = false;
   if (keyCode == DOWN) downkey = false;
-  if (key == 'p') pkey = false;
+  if ((mode == game || mode == pause) && (key == 'p' || key == 'P')) {
+    pkey = true;
+  }
 }

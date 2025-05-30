@@ -11,7 +11,7 @@ void gameover(){
     text("Player 2 wins", 444, 400);
   }
   
-  text("Player 1 wins", 444, 400);
+  //text("Player 1 wins", 444, 400);
   
   rect(450, 570, 100, 50, 20);
   rect(450, 630, 100, 50, 20);
@@ -32,6 +32,15 @@ void gameover(){
 
 
 void gameoverclicks() {
+  
+  if(mouseX >= 450 && mouseX <= 550 && mouseY >= 570 && mouseY <= 620){
+    
+  }
+  
+  if(mouseX >= 450 && mouseX <= 550 && mouseY >= 630 && mouseY <= 680){
+    
+  }
+  
   
   
 }

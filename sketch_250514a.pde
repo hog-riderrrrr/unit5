@@ -3,6 +3,7 @@ final int intro = 1;
 final int game = 2;
 final int pause = 3;
 final int gameover = 4;
+final int choosemode = 5;
 int gamemode;
 final int square = 1;
 final int circle = 2;
@@ -14,10 +15,9 @@ float bally;
 float balld;
 float vx;
 float vy;
-float ishowspeed1, ishowspeeddown;
-float ushowspeed1, ushowspeeddown;
+
 boolean wkey, skey, upkey, downkey, pkey;
-float playerspeed;
+float ishowspeed, ushowspeed;
 float distance1, distance2;
 float distancex1, distancex2, distancey1, distancey2;
 float constant;
@@ -25,13 +25,14 @@ int player1point, player2point;
 int maxpoint;
 boolean dowepause;
 boolean gamestart;
+boolean player1collide, player2collide;
 
 
 
 
 void setup() {
   size(1000, 800);
-  mode = game;
+  mode = intro;
   gamemode = circle;
   player1y = 400;
   player2y = 400;
@@ -42,12 +43,13 @@ void setup() {
   balld = 20;
   vx = 4;
   vy = 4;
-  playerspeed = 12;
+  ishowspeed = 12;
+  ushowspeed = 12;
   constant = 12;
   player1point = 0;
   player2point = 0;
   maxpoint = 4;
-  dowepause = false;
+  pkey = false;
   
 }
 

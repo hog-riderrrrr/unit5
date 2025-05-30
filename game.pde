@@ -31,13 +31,55 @@ if(gamemode == square) {
 
 
 
-  if (wkey == true) {
-    player1y = player1y - playerspeed;
-  }
-  if (skey == true) player1y = player1y + playerspeed;
 
-  if (upkey == true) player2y = player2y - playerspeed;
-  if (downkey == true) player2y = player2y + playerspeed;
+if(player1y >= 0 && player1y <= 850){
+    player1collide = false;
+  } else if(player1y <= 0 || player1y >= 850) {
+    player1collide = true;
+  }
+  
+  if(player2y >= 0 && player2y <= 850){
+    player2collide = false;
+  } else if(player2y <= 0 || player2y >= 850) {
+    player2collide = true;
+  }
+  
+  
+  if (wkey == true && player1collide == false) {
+  player1y = player1y - ishowspeed;
+  } else if(wkey == true && player1collide == true) {
+    
+  }
+  
+  if (wkey == true) {
+    if(player1y >= 0 && player1y <= 850){
+    ishowspeed = 12;
+  } else if(player1y <= 0 || player1y >= 850) {
+    ishowspeed = 0;
+  }
+  player1y = player1y + ishowspeed;
+  }
+ 
+ 
+ 
+
+  if (upkey == true) {
+    if(player2y >= 0 && player2y <= 850){
+    ushowspeed = 12;
+  } else if(player1y <= 0 || player1y >= 850) {
+    ushowspeed = 0;
+  }
+  player2y = player2y - ushowspeed;
+  }
+  
+  if (downkey == true) {
+    if(player2y >= 0 && player2y <= 850){
+    ushowspeed = 12;
+  } else if(player1y <= 0 || player1y >= 850) {
+    ushowspeed = 0;
+  }
+  player2y = player2y + ushowspeed;
+  }
   
   
   //collsion
@@ -45,7 +87,7 @@ if(gamemode == square) {
   if(ballx <= 40 && bally >= player1y && bally <= player1y + 180){
     vx = vx * -1;
   }
-  if(ballx >= 960 && bally >= player2y && bally <= player2y + 180){
+  if(ballx >= 940 && bally >= player2y && bally <= player2y + 180){
     vx = vx * -1;
   }
   
@@ -96,12 +138,12 @@ if(gamemode == circle){
   
 
   if (wkey == true) {
-    player1y = player1y - playerspeed;
+    player1y = player1y - ishowspeed;
   }
-  if (skey == true) player1y = player1y + playerspeed;
+  if (skey == true) player1y = player1y + ishowspeed;
 
-  if (upkey == true) player2y = player2y - playerspeed;
-  if (downkey == true) player2y = player2y + playerspeed;
+  if (upkey == true) player2y = player2y - ushowspeed;
+  if (downkey == true) player2y = player2y + ushowspeed;
   
 
   
@@ -109,13 +151,16 @@ if(gamemode == circle){
   
 } //end of circle
 
-//scoring
+//text stuff
 textSize(50);
 fill(255, 255, 255, 100);
 text(player1point, width/4, 100);
 text(player2point, 3 * width/4, 100);
+textSize(20);
+text("press p to pause", 500, 350);
 
 
+//scoring
 if(ballx >= 980){
   player1point = player1point + 1;
   
@@ -127,16 +172,14 @@ if(ballx <= 0) {
 
 //pause the game
 if(pkey == true){
- dowepause = !dowepause; 
+ mode = pause;
+ pkey = false;
 }
-if(gamestart == true){
-if(dowepause == true){
-  mode = pause;
-}
-if(dowepause == false){
-  mode = game;
-}
-}
+
+
+
+
+
 
 //game over
 if(player1point == maxpoint || player2point == maxpoint){
@@ -148,8 +191,11 @@ if(player1point == maxpoint || player2point == maxpoint){
   player2point = 0;
   
 }
-  
+
 }
+  
+
 
 void gameclicks() {
+  
 }
