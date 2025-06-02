@@ -6,7 +6,7 @@ void game() {
   fill(255, 255, 255);
   
   
-
+//square
 if(gamemode == square) {
 
   rect(20, player1y, 20, 150);
@@ -32,55 +32,60 @@ if(gamemode == square) {
 
 
 
-if(player1y >= 0 && player1y <= 850){
-    player1collide = false;
-  } else if(player1y <= 0 || player1y >= 850) {
-    player1collide = true;
+if(player1y >= 0 && player1y <= 650){
+    player1collideup = false;
+    player1collidedown = false;
+  } else if(player1y <= 0) {
+    player1collideup = true;
+  } else if(player1y >= 650) {
+    player1collidedown = true;
   }
   
-  if(player2y >= 0 && player2y <= 850){
-    player2collide = false;
-  } else if(player2y <= 0 || player2y >= 850) {
-    player2collide = true;
+  if(player2y >= 0 && player2y <= 650){
+    player2collideup = false;
+    player2collidedown = false;
+  } else if(player2y <= 0) {
+    player2collideup = true;
+  } else if(player2y >= 650) {
+    player2collidedown = true;
   }
   
   
-  if (wkey == true && player1collide == false) {
-  player1y = player1y - ishowspeed;
-  } else if(wkey == true && player1collide == true) {
-    
+  if (wkey == true && player1collideup == false) {
+  ishowspeedup = 12;
+  player1y = player1y - ishowspeedup;
+  } else if(wkey == true && player1collideup == true) {
+  ishowspeedup = 0;
+  player1y = player1y - ishowspeedup;
   }
   
-  if (wkey == true) {
-    if(player1y >= 0 && player1y <= 850){
-    ishowspeed = 12;
-  } else if(player1y <= 0 || player1y >= 850) {
-    ishowspeed = 0;
+  if (skey == true && player1collidedown == false) {
+  ishowspeeddown = 12;
+  player1y = player1y + ishowspeeddown;
+  } else if(skey == true && player1collidedown == true) {
+  ishowspeeddown = 0;
+  player1y = player1y + ishowspeeddown;
   }
-  player1y = player1y + ishowspeed;
+  
+
+ if (upkey == true && player2collideup == false) {
+  ushowspeedup = 12;
+  player2y = player2y - ushowspeedup;
+  } else if(upkey == true && player2collideup == true) {
+  ushowspeedup = 0;
+  player2y = player2y - ushowspeedup;
   }
  
- 
+  if (downkey == true && player2collidedown == false) {
+  ushowspeeddown = 12;
+  player2y = player2y + ushowspeeddown;
+  } else if(downkey == true && player2collidedown == true) {
+  ushowspeeddown = 0;
+  player2y = player2y + ushowspeeddown;
+  }
  
 
-  if (upkey == true) {
-    if(player2y >= 0 && player2y <= 850){
-    ushowspeed = 12;
-  } else if(player1y <= 0 || player1y >= 850) {
-    ushowspeed = 0;
-  }
-  player2y = player2y - ushowspeed;
-  }
-  
-  if (downkey == true) {
-    if(player2y >= 0 && player2y <= 850){
-    ushowspeed = 12;
-  } else if(player1y <= 0 || player1y >= 850) {
-    ushowspeed = 0;
-  }
-  player2y = player2y + ushowspeed;
-  }
-  
+ 
   
   //collsion
   
@@ -137,13 +142,63 @@ if(gamemode == circle){
   }
   
 
-  if (wkey == true) {
-    player1y = player1y - ishowspeed;
+if(player1y >= 50 && player1y <= 750){
+    player1collideup = false;
+    player1collidedown = false;
+  } else if(player1y <= 50) {
+    player1collideup = true;
+    player1collidedown = false;
+  } else if(player1y >= 750) {
+    player1collidedown = true;
+    player1collideup = false;
   }
-  if (skey == true) player1y = player1y + ishowspeed;
+  
+  if(player2y >= 50 && player2y <= 750){
+    player2collideup = false;
+    player2collidedown = false;
+  } else if(player2y <= 50) {
+    player2collideup = true;
+    player2collidedown = false;
+  } else if(player2y >= 750) {
+    player2collidedown = true;
+    player2collideup = false;
+  }
+  
+  
+  if (wkey == true && player1collideup == false) {
+  ishowspeedup = 12;
+  player1y = player1y - ishowspeedup;
+  } else if(wkey == true && player1collideup == true) {
+  ishowspeedup = 0;
+  player1y = player1y - ishowspeedup;
+  }
+  
+  if (skey == true && player1collidedown == false) {
+  ishowspeeddown = 12;
+  player1y = player1y + ishowspeeddown;
+  } else if(wkey == true && player1collidedown == true) {
+  ishowspeeddown = 0;
+  player1y = player1y + ishowspeeddown;
+  }
+  
 
-  if (upkey == true) player2y = player2y - ushowspeed;
-  if (downkey == true) player2y = player2y + ushowspeed;
+ if (upkey == true && player2collideup == false) {
+  ushowspeedup = 12;
+  player2y = player2y - ushowspeedup;
+  } else if(wkey == true && player2collideup == true) {
+  ushowspeedup = 0;
+  player2y = player2y - ushowspeedup;
+  }
+ 
+  if (downkey == true && player2collidedown == false) {
+  ushowspeeddown = 12;
+  player2y = player2y + ushowspeeddown;
+  } else if(wkey == true && player2collidedown == true) {
+  ushowspeeddown = 0;
+  player2y = player2y + ushowspeeddown;
+  }
+ 
+
   
 
   
@@ -187,8 +242,6 @@ if(player1point == maxpoint || player2point == maxpoint){
   
   mode = gameover;
   gamestart = false;
-  player1point = 0;
-  player2point = 0;
   
 }
 

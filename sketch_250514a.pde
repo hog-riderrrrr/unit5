@@ -17,7 +17,7 @@ float vx;
 float vy;
 
 boolean wkey, skey, upkey, downkey, pkey;
-float ishowspeed, ushowspeed;
+float ishowspeedup, ishowspeeddown, ushowspeedup, ushowspeeddown;
 float distance1, distance2;
 float distancex1, distancex2, distancey1, distancey2;
 float constant;
@@ -25,7 +25,7 @@ int player1point, player2point;
 int maxpoint;
 boolean dowepause;
 boolean gamestart;
-boolean player1collide, player2collide;
+boolean player1collideup, player1collidedown, player2collideup, player2collidedown;
 
 
 
@@ -43,8 +43,10 @@ void setup() {
   balld = 20;
   vx = 4;
   vy = 4;
-  ishowspeed = 12;
-  ushowspeed = 12;
+  ishowspeedup = 12;
+  ishowspeeddown = 12;
+  ushowspeedup = 12;
+  ushowspeeddown = 12;
   constant = 12;
   player1point = 0;
   player2point = 0;
