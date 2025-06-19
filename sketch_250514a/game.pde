@@ -238,8 +238,8 @@ if(pkey == true){
 
 //game over
 if(player1point == maxpoint || player2point == maxpoint){
-  
-  
+  win.rewind();
+  win.play();
   mode = gameover;
   gamestart = false;
   

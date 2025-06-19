@@ -1,5 +1,4 @@
 void intro() {
-  theme.play();
   background(0);
   textSize(100);
   text("PONG", 300, 330);
@@ -12,6 +11,14 @@ void intro() {
   rect(200, 600, 100, 100);
   circle(750, 650, 100);
   
+  
+  
+  
+}
+
+
+
+void numplayer() {
   
   
   
@@ -33,4 +40,8 @@ void introclicks() {
   
   
     
+}
+
+void numplayerclicks() {
+  
 }

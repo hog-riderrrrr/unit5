@@ -1,7 +1,14 @@
-import processing.sound.*;
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
 
-SoundFile theme;
 
+
+Minim minim;
+AudioPlayer theme, live, press, win;
 
 int mode;
 final int intro = 1;
@@ -9,6 +16,7 @@ final int game = 2;
 final int pause = 3;
 final int gameover = 4;
 final int choosemode = 5;
+final int numplayer = 6;
 int gamemode;
 final int square = 1;
 final int circle = 2;
@@ -37,7 +45,14 @@ boolean player1collideup, player1collidedown, player2collideup, player2collidedo
 
 void setup() {
   size(1000, 800);
-  theme = new SoundFile(this, "music.mp3");
+  minim = new Minim(this);
+  theme = minim.loadFile("music.mp3");
+  live = minim.loadFile("life.wav");
+  press = minim.loadFile("press.wav");
+  win = minim.loadFile("gameover.wav");
+  
+  theme.rewind();
+  theme.loop();
   mode = intro;
   gamemode = circle;
   player1y = 400;
@@ -73,6 +88,8 @@ void draw() {
     pause();
   } else if (mode == gameover) {
     gameover();
+  } else if (mode == numplayer) {
+    numplayer();
   } else {
     println("Mode erro: " + mode);
   }
